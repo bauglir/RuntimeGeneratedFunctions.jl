@@ -147,7 +147,7 @@ function Base.show(io::IO, ::MIME"text/plain",
 end
 
 function (f::RuntimeGeneratedFunction)(args::Vararg{Any, N}) where {N}
-    generated_callfunc(f, args...)
+    invokelatest(generated_callfunc, f, args...)
 end
 
 # We'll generate a method of this function in every module which wants to use
